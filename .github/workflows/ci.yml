@@ -30,4 +30,4 @@ jobs:
       # Paso 4:
       - name: Run PHP tests
         run: |
-          php test_calculadora.php  # Este comando ejecuta el archivo de pruebas de tu calculadora
+          php test_calculadora.php 
