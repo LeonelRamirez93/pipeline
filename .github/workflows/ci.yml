@@ -1,0 +1,33 @@
+name: PHP Application 
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Paso 2:
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      # Paso 3:
+      - name: Install PHP extensions
+        run: sudo apt-get install php-mysql libapache2-mod-php
+
+      # Paso 4:
+      - name: Run PHP tests
+        run: |
+          php test_calculadora.php  # Este comando ejecuta el archivo de pruebas de tu calculadora
